@@ -1,0 +1,25 @@
+{
+    "name": "chat-server-https",
+    "version": "0.0.2",
+    "author": "Francisco Dzuryk <franciscodzuryk@gmail.com>",
+    "description": "Example single thread Server.",
+    "repository": {
+        "type": "git",
+        "url": ""
+    },
+    "main": "app.js",
+    "scripts": {
+        "start": "node app.js"
+    },
+    "dependencies": {
+        "express": "*",
+        "method-override": "*",
+        "errorhandler": "*",
+        "body-parser": "*",
+        "ip": "*"
+    },
+    "license": "MIT",
+    "engines": {
+        "node": "<=10.13.0"
+    }
+}
