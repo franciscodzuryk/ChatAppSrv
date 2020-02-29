@@ -41,13 +41,7 @@ function getAllMessages(request, response) {
 	    var msgs = generateDic(companyMsgs);
 	}
 
-	console.log('---------------------------------------------');
-	console.log('getAllMessages ');
-	console.log(JSON.stringify(msgs));
-	console.log('---------------------------------------------');
-	
-	companyMsgs = [];
-	
+	companyMsgs = [];	
 	response.writeHead(200, {"Content-Type": "application/json"});
 	response.end(JSON.stringify(msgs));
 }

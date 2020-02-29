@@ -23,10 +23,8 @@ var company = require("./Controllers/Company");
 
 //REST Routes
 app.post('/user/login', user.login);
-app.post('/user/:id_user/login', user.relogin);
 app.post('/user/:id_user/logout', user.logout);
-app.get('/user/', user.userList);
-app.get('/user/status', user.status);
+app.get('/user', user.userList);
 app.post('/user/:id_user/message', user.sendMessage);
 app.get('/user/:id_user/message', user.getMessages);
 app.post('/company/login', company.login);

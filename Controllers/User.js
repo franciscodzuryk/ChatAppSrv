@@ -2,12 +2,6 @@ var userMsgs = [];
 var users = [];
 
 function login(request, response) {
-	console.log('LOGIN!!!');
-	console.log('---------------------------------------------');
-	console.log('User want to login: ');
-	console.log(request.body);
-	
-
 	var user = request.body;
 	user.id = users.length;
 	user.available = true;
@@ -15,16 +9,6 @@ function login(request, response) {
 	userMsgs[user.id] = [];
 	users[user.id] = user;
 
-	console.log('UsrID: ' + user.id);
-	console.log('---------------------------------------------');
-
-	response.writeHead(200, {"Content-Type": "application/json"});
-	response.end(JSON.stringify(user));
-}
-
-function relogin(request, response) {
-	users[request.params.id_user].available = true;
-	
 	response.writeHead(200, {"Content-Type": "application/json"});
 	response.end(JSON.stringify(user));
 }
@@ -36,12 +20,6 @@ function logout(request, response) {
 }
 
 function userList(request, response) {
-	console.log('---------------------userList------------------------');
-	response.writeHead(200, {"Content-Type": "application/json"});
-	response.end(JSON.stringify(users));
-}
-
-function status(request, response) {
 	response.writeHead(200, {"Content-Type": "application/json"});
 	response.end(JSON.stringify(users));
 }
@@ -55,11 +33,6 @@ function getMessages(request, response) {
 }
 
 function sendMessage(request, response) {
-	console.log('---------------------------------------------');
-	console.log('Server sent a message: ');
-	console.log(request.body);
-	console.log('---------------------------------------------');
-
 	if (users[request.params.id_user].available) {
 		users[request.params.id_user].msgsCount++;
 		if (request.body.type == 0) {
@@ -76,9 +49,7 @@ function sendMessage(request, response) {
 
 exports.userMsgs = userMsgs;
 exports.login = login;
-exports.relogin = relogin;
 exports.logout = logout;
-exports.status = status;
 exports.getMessages = getMessages;
 exports.sendMessage = sendMessage;
 exports.userList = userList;
